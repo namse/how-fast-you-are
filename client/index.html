@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Smoke Weed Every Day</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" />
+    <style>
+      body {
+        margin: 0px;
+        overflow: hidden;
+      }
+      #plate {
+        position: absolute;
+      }
+      #arrow {
+        position: absolute;
+        top: 122px;
+        left: 200px;
+        transform: rotate(-90deg);
+        transform-origin: 7px 71px;
+        /* transition: 300ms ease all; */
+      }
+    </style>
+  </head>
+  <body>
+    <img id="plate" src="public/plate.png" />
+    <img id="arrow" src="public/arrow.png" />
+    <div id="counter"></div>
+  </body>
+</html>
+
