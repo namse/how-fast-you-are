@@ -30,7 +30,7 @@ socket.on('key', async (key) => {
 
 
 function tick() {
-  const degree = 180 / 30 * average - 90;
+  const degree = 240 / 30 * average - 120;
   // console.log(degree);
   document.getElementById("arrow").style.transform = `rotate(${degree}deg)`;
   requestAnimationFrame(tick);
