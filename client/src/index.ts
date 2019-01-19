@@ -37,10 +37,15 @@ socket.on('key', async (key) => {
 });
 
 
+function padLeft0(num: number) {
+  const temp = '000' + `${num}`;
+  return temp.slice(-4);
+}
+
 function updateInfo() {
   totalElement.innerText = `${total}`;
-  speedElement.innerText = `${average * 60}`;
-  maxElement.innerText = `${max}`;
+  speedElement.innerText = `${padLeft0(average * 60)}`;
+  maxElement.innerText = `${max * 60}`;
 }
 
 function tick() {
