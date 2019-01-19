@@ -17,6 +17,12 @@ socket.on('refresh', () => {
 
 let average = 0;
 let total = 0;
+let max = 0;
+
+const arrowElement = document.getElementById("arrow");
+const totalElement = document.getElementById('total');
+const speedElement = document.getElementById('speed');
+const maxElement = document.getElementById('max');
 
 socket.on('key', async (key) => {
   average += 1;
@@ -26,13 +32,27 @@ socket.on('key', async (key) => {
   setTimeout(() => {
     average -= 1;
   }, 1000);
+  if(max >= average) return;
+  max = average;
 });
 
+
+function padLeft0(num: number) {
+  const temp = '000' + `${num}`;
+  return temp.slice(-4);
+}
+
+function updateInfo() {
+  totalElement.innerText = `${total}`;
+  speedElement.innerText = `${padLeft0(average * 60)}`;
+  maxElement.innerText = `${max * 60}`;
+}
 
 function tick() {
   const degree = 240 / 30 * average - 120;
   // console.log(degree);
-  document.getElementById("arrow").style.transform = `rotate(${degree}deg)`;
+  updateInfo();
+  arrowElement.style.transform = `rotate(${degree}deg)`;
   requestAnimationFrame(tick);
 }
 tick();
