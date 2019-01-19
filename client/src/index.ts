@@ -4,7 +4,7 @@ declare var Odometer: any;
 
 console.log('i am loaded, i am lord. i am tachanka');
 
-const serverUrl = 'http://192.168.0.2:58825';
+const serverUrl = 'http://192.168.0.100:58825';
 
 const socket = io(serverUrl);
 window.onerror = (message, file, line, col, error) => {
@@ -17,6 +17,12 @@ socket.on('refresh', () => {
 
 let average = 0;
 let total = 0;
+let max = 0;
+
+const arrowElement = document.getElementById("arrow");
+const totalElement = document.getElementById('total');
+const speedElement = document.getElementById('speed');
+const maxElement = document.getElementById('max');
 
 socket.on('key', async (key) => {
   average += 1;
@@ -26,13 +32,22 @@ socket.on('key', async (key) => {
   setTimeout(() => {
     average -= 1;
   }, 1000);
+  if(max >= average) return;
+  max = average;
 });
 
+
+function updateInfo() {
+  totalElement.innerText = `${total}`;
+  speedElement.innerText = `${average * 60}`;
+  maxElement.innerText = `${max}`;
+}
 
 function tick() {
   const degree = 240 / 30 * average - 120;
   // console.log(degree);
-  document.getElementById("arrow").style.transform = `rotate(${degree}deg)`;
+  updateInfo();
+  arrowElement.style.transform = `rotate(${degree}deg)`;
   requestAnimationFrame(tick);
 }
 tick();
