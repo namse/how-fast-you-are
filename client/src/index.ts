@@ -4,7 +4,7 @@ declare var Odometer: any;
 
 console.log('i am loaded, i am lord. i am tachanka');
 
-const serverUrl = 'http://192.168.0.100:58825';
+const serverUrl = 'http://192.168.0.2:58825';
 
 const socket = io(serverUrl);
 window.onerror = (message, file, line, col, error) => {
