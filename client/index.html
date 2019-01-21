@@ -9,9 +9,9 @@
       body {
         margin: 0px;
         overflow: hidden;
-        background: rgba(0, 0, 0, 0.6);
+        /* background: rgba(0, 0, 0, 0.6); */
       }
-      #plate {
+      /* #plate {
         position: absolute;
       }
       #arrow {
@@ -29,11 +29,48 @@
         align-items: center;
         text-align: center;
         color: white;
+      } */
+
+      #gauge_top {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      #gauge_mid {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        
+        transition: 300ms ease all;
+      }
+      #gauge_bottom {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0.4;
+      }
+      #max {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 300px;
+        text-align: center;
+        font-size: 40px;
+        color: white;
+      }
+      #speed {
+        position: absolute;
+        top: 440px;
+        left: 0px;
+        width: 300px;
+        text-align: center;
+        font-size: 40px;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <img id="plate" src="public/plate.png" />
+    <!-- <img id="plate" src="public/plate.png" />
     <div id="infoBox">
         <h3>Today's type</h3>
         <h3 id="total">0</h3>
@@ -43,8 +80,14 @@
         <h3>Today's max speed</h3>
         <h3 id="max">0</h3>
     </div>
-    <img id="arrow" src="public/arrow.png" />
+    <img id="arrow" src="public/arrow.png" /> -->
     <div id="counter"></div>
+
+    <img id="gauge_bottom" src="public/gauge_bottom.png" />
+    <img id="gauge_mid" src="public/gauge_mid.png" />
+    <img id="gauge_top" src="public/gauge_top.png" />
+    <div id="max">0</div>
+    <div id="speed">0</div>
   </body>
 </html>
 
