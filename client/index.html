@@ -8,15 +8,20 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <style>
       body {
-        font-family: 'Black Ops One', cursive;
         margin: 0px;
         overflow: hidden;
-        /* background: rgba(0, 0, 0, 0.6); */
       }
-      /* #plate {
+
+      #car {
+        display: none;
+        width: 500px;
+        height: 500px;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      #car_plate {
         position: absolute;
       }
-      #arrow {
+      #car_arrow {
         position: absolute;
         top: 32px;
         left: 246px;
@@ -24,34 +29,38 @@
         transform-origin: 4px 218px;
         transition: 300ms ease all;
       }
-      #infoBox {
+      #car_infoBox {
         position: absolute;
         top: 140px;
         width: 500px;
         align-items: center;
         text-align: center;
         color: white;
-      } */
+      }
 
-      #gauge_top {
+      #rhythmGame {
+        font-family: 'Black Ops One', cursive;
+        display: none;
+      }
+      #rhythmGame_gauge_top {
         position: absolute;
         top: 0px;
         left: 0px;
       }
-      #gauge_mid {
+      #rhythmGame_gauge_mid {
         position: absolute;
         top: 0px;
         left: 0px;
         
         transition: 300ms ease all;
       }
-      #gauge_bottom {
+      #rhythmGame_gauge_bottom {
         position: absolute;
         top: 0px;
         left: 0px;
         opacity: 0.4;
       }
-      #max {
+      #rhythmGame_max {
         position: absolute;
         top: 5px;
         left: 0px;
@@ -60,7 +69,7 @@
         font-size: 40px;
         color: white;
       }
-      #speed {
+      #rhythmGame_speed {
         position: absolute;
         top: 445px;
         left: 0px;
@@ -69,21 +78,21 @@
         font-size: 40px;
         color: white;
       }
-      #combo {
+      #rhythmGame_combo {
         position: absolute;
         top: 150px;
         left: 0px;
         width: 300px;
         transform: translate( 0, -50% );
       }
-      #total {
+      #rhythmGame_total {
         position: absolute;
         top: 200px;
         left: 0px;
         width: 300px;
         transform: translate( 0, -50% );
       }
-      #comboBox {
+      #rhythmGame_comboBox {
         text-align: center;
         font-size: 0px;
         color: white;
@@ -92,27 +101,31 @@
     </style>
   </head>
   <body>
-    <!-- <img id="plate" src="public/plate.png" />
-    <div id="infoBox">
-        <h3>Today's type</h3>
-        <h3 id="total">0</h3>
-        <br>
-        <h2 id="speed">0</h2>
-        <h4>character / min</h4>
-        <h3>Today's max speed</h3>
-        <h3 id="max">0</h3>
+    <div id="car">
+      <img id="car_plate" src="public/plate.png" />
+      <div id="car_infoBox">
+          <h3>Today's type</h3>
+          <h3 id="car_total">0</h3>
+          <br>
+          <h2 id="car_speed">0</h2>
+          <h4>character / min</h4>
+          <h3>Today's max speed</h3>
+          <h3 id="car_max">0</h3>
+      </div>
+      <img id="car_arrow" src="public/arrow.png" />
+    <div id="car_counter"></div>
     </div>
-    <img id="arrow" src="public/arrow.png" /> -->
-    <div id="counter"></div>
 
-    <img id="gauge_bottom" src="public/gauge_bottom.png" />
-    <img id="gauge_mid" src="public/gauge_mid.png" />
-    <img id="gauge_top" src="public/gauge_top.png" />
-    <div id="max">0</div>
-    <div id="speed">0</div>
-    <div id="comboBox">
-      <div id="total">0</div>
-      <div id="combo">Combo</div>
+    <div id="rhythmGame">
+      <img id="rhythmGame_gauge_bottom" src="public/gauge_bottom.png" />
+      <img id="rhythmGame_gauge_mid" src="public/gauge_mid.png" />
+      <img id="rhythmGame_gauge_top" src="public/gauge_top.png" />
+      <div id="rhythmGame_max">0</div>
+      <div id="rhythmGame_speed">0</div>
+      <div id="rhythmGame_comboBox">
+        <div id="rhythmGame_total">0</div>
+        <div id="rhythmGame_combo">Combo</div>
+      </div>
     </div>
   </body>
 </html>
