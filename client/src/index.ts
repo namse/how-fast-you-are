@@ -1,7 +1,5 @@
 import io from 'socket.io-client';
 
-declare var Odometer: any;
-
 console.log('i am loaded, i am lord. i am tachanka');
 
 const serverUrl = 'http://192.168.0.2:58825';
@@ -36,78 +34,27 @@ class RhythmGameTheme {
     this.mainElement.style.display = 'block';
 
     socket.on('key', async (key) => {
-      this.comboBoxSize = 50;
+      this.comboBoxSize = 10;
     });
   }
 
   draw(dt: number) {
-    const pixelY = 440 - (380 / 30 * average);
-
     this.shrinkComboBox(dt);
 
     this.totalElement.innerText = `${total}`;
     this.speedElement.innerText = `${padLeft0(average * 60)}`;
     this.maxElement.innerText = `${padLeft0(max * 60)}`;
-    this.comboBoxElement.style.fontSize = `${this.comboBoxSize}px`;
-    this.gaugeElement.style.clip = `rect(${pixelY}px, 300px, 440px, 0px)`;
+    this.comboBoxElement.style.fontSize = `${this.comboBoxSize}vh`;
 
+    const percentY = 12 + (100 - 24) / 16 * (16 - average);
+    this.gaugeElement.style.clip = `rect(${percentY}vh, 100vw, 100vh, 0)`;
   }
 
   shrinkComboBox(dt: number) {
     if(!this.comboBoxSize) return;
-    this.comboBoxSize -= 150 * dt;
+    this.comboBoxSize -= 30 * dt;
     if(this.comboBoxSize >= 0) return;
-    this.comboBoxSize = 0; 
-  }
-}
-
-class CarTheme {
-  mainElement: HTMLElement;
-  arrowElement: HTMLElement;
-  totalElement: HTMLElement;
-  speedElement: HTMLElement;
-  maxElement: HTMLElement;
-  counterElement: HTMLElement;
-  odometer: any;
-
-  constructor() {
-    this.mainElement = document.getElementById('car');
-    this.arrowElement = document.getElementById("car_arrow");
-    this.totalElement = document.getElementById('car_total');
-    this.speedElement = document.getElementById('car_speed');
-    this.maxElement = document.getElementById('car_max');
-    this.counterElement = document.getElementById('car_counter');
-
-    this.mainElement.style.display = 'block';
-
-    (window as any).odometerOptions = {
-      // auto: false, // Don't automatically initialize everything with class 'odometer'
-      // selector: '.my-numbers', // Change the selector used to automatically find things to be animated
-      // format: '(,ddd).dd', // Change how digit groups are formatted, and how many digits are shown after the decimal point
-      duration: 60, // Change how long the javascript expects the CSS animation to take
-      // theme: 'car', // Specify the theme (if you have more than one theme css file on the page)
-      // animation: 'count' // Count is a simpler animation method which just increments the value,
-      //                    // use it when you're looking for something more subtle.
-    };
-
-    this.odometer = new Odometer({
-      el: this.counterElement,
-      value: 0,
-      // format: '',
-      // theme: 'digital'
-    });
-
-  }
-
-  draw(dt: number) {
-    const degree = 240 / 30 * average - 120;
-
-    this.totalElement.innerText = `${total}`;
-    this.speedElement.innerText = `${padLeft0(average * 60)}`;
-    this.maxElement.innerText = `${max * 60}`;
-
-    this.odometer.update(total);
-    this.arrowElement.style.transform = `rotate(${degree}deg)`;
+    this.comboBoxSize = 0;
   }
 }
 

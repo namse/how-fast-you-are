@@ -3,39 +3,11 @@
   <head>
     <title>Smoke Weed Every Day</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <style>
       body {
         margin: 0px;
         overflow: hidden;
-      }
-
-      #car {
-        display: none;
-        width: 500px;
-        height: 500px;
-        background: rgba(0, 0, 0, 0.6);
-      }
-      #car_plate {
-        position: absolute;
-      }
-      #car_arrow {
-        position: absolute;
-        top: 32px;
-        left: 246px;
-        transform: rotate(-120deg);
-        transform-origin: 4px 218px;
-        transition: 300ms ease all;
-      }
-      #car_infoBox {
-        position: absolute;
-        top: 140px;
-        width: 500px;
-        align-items: center;
-        text-align: center;
-        color: white;
       }
 
       #rhythmGame {
@@ -46,50 +18,52 @@
         position: absolute;
         top: 0px;
         left: 0px;
+        height: 100%;
       }
       #rhythmGame_gauge_mid {
         position: absolute;
         top: 0px;
         left: 0px;
-        
+
         transition: 300ms ease all;
+        height: 100%;
       }
       #rhythmGame_gauge_bottom {
         position: absolute;
         top: 0px;
         left: 0px;
         opacity: 0.4;
+        height: 100%;
       }
       #rhythmGame_max {
         position: absolute;
-        top: 5px;
-        left: 0px;
-        width: 300px;
+        left: 15vh;
+        width: 30vh;
         text-align: center;
-        font-size: 40px;
+        font-size: 10vh;
         color: white;
       }
       #rhythmGame_speed {
         position: absolute;
-        top: 445px;
-        left: 0px;
-        width: 300px;
+        top: 88vh;
+        left: 15vh;
+        width: 30vh;
         text-align: center;
-        font-size: 40px;
+        font-size: 10vh;
         color: white;
       }
       #rhythmGame_combo {
         position: absolute;
-        top: 150px;
+        top: 30vh;
         left: 0px;
-        width: 300px;
+        width: 60vh;
         transform: translate( 0, -50% );
       }
       #rhythmGame_total {
         position: absolute;
-        top: 200px;
+        top: 40vh;
         left: 0px;
-        width: 300px;
+        width: 60vh;
         transform: translate( 0, -50% );
       }
       #rhythmGame_comboBox {
@@ -101,21 +75,6 @@
     </style>
   </head>
   <body>
-    <div id="car">
-      <img id="car_plate" src="public/plate.png" />
-      <div id="car_infoBox">
-          <h3>Today's type</h3>
-          <h3 id="car_total">0</h3>
-          <br>
-          <h2 id="car_speed">0</h2>
-          <h4>character / min</h4>
-          <h3>Today's max speed</h3>
-          <h3 id="car_max">0</h3>
-      </div>
-      <img id="car_arrow" src="public/arrow.png" />
-    <div id="car_counter"></div>
-    </div>
-
     <div id="rhythmGame">
       <img id="rhythmGame_gauge_bottom" src="public/gauge_bottom.png" />
       <img id="rhythmGame_gauge_mid" src="public/gauge_mid.png" />
